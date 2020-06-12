@@ -1,5 +1,7 @@
 # asciigraphs
-Python package to parse functions from their graphs.
+Python package to parse functions from their ascii graphs. 
+This is a single module package with less then 30 lines of code and no dependencies.
+Runs on Python >= 3.6
 
 # install
 
