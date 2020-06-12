@@ -24,21 +24,23 @@ f = parse_ascii_func(glyph='*', graph="""
  # Example Multiple Functions
 ```python
 from ..asciigraph import parse_ascii_funcs
-g, h = parse_ascii_funcs(glyphs=['*', '+'], graph="""
+g, h, p = parse_ascii_funcs(glyphs=['*', '+', '#'], graph="""
        g()
        3|     *
        2|*   *
        1| * *
        0|--*------------
 
-       h() 
+     h() p()
        3|  +
        2|++ 
-       0|---------------
+       1|##
+       0|--#------------
    """)
 
 print(g)  # {0: 2, 1: 1, 2: 0, 3: 1, 4: 2, 5: 3}
 print(h)  # {0: 2, 1: 2, 2: 3}
+print(p)  # {0: 2, 1: 2, 2: 3}
  ```
  
  # Example Custom Index
