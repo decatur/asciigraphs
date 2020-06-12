@@ -24,8 +24,8 @@ f = parse_ascii_func(glyph='*', graph="""
         0|--*------------
     """)
 
-    print(f)  # {0: 2, 1: 1, 2: 0, 3: 1, 4: 2, 5: 3}
- ```
+print(f)  # {0: 2, 1: 1, 2: 0, 3: 1, 4: 2, 5: 3}
+```
  
  # Example Multiple Functions
 ```python
@@ -47,7 +47,7 @@ g, h, p = parse_ascii_funcs(glyphs=['*', '+', '#'], graph="""
 print(g)  # {0: 2, 1: 1, 2: 0, 3: 1, 4: 2, 5: 3}
 print(h)  # {0: 2, 1: 2, 2: 3}
 print(p)  # {0: 2, 1: 2, 2: 3}
- ```
+```
  
  # Example Custom Index
 
@@ -61,4 +61,4 @@ ts = parse_ascii_func(glyph='*', graph="""
 """, index=[str(date(2020, 6, day)) for day in range(12, 18)])
 
 print(ts)  # {'2020-06-12': 2, '2020-06-13': 1, '2020-06-14': 0, '2020-06-15': 1, '2020-06-16': 2, '2020-06-17': 3}
- ```
+```
