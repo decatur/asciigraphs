@@ -3,6 +3,10 @@ Python package to parse functions from their ascii graphs.
 This is a single module package with less then 30 lines of code and no dependencies.
 Runs on Python >= 3.6
 
+# See Also
+
+[Python library for parsing ASCII directed graphs](https://github.com/rdesgroppes/asciidigraphs)
+
 # install
 
 ```bash
