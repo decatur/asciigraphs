@@ -11,7 +11,6 @@ pip install git+https://github.com/decatur/asciigraphs.git
 
 ```python
 from ..asciigraph import parse_ascii_func
-
 f = parse_ascii_func(glyph='*', graph="""
         3|     *
         2|*   *
@@ -25,7 +24,6 @@ f = parse_ascii_func(glyph='*', graph="""
  # Example Multiple Functions
 ```python
 from ..asciigraph import parse_ascii_funcs
-
 g, h = parse_ascii_funcs(glyphs=['*', '+'], graph="""
        g()
        3|     *
@@ -41,4 +39,18 @@ g, h = parse_ascii_funcs(glyphs=['*', '+'], graph="""
 
 print(g)  # {0: 2, 1: 1, 2: 0, 3: 1, 4: 2, 5: 3}
 print(h)  # {0: 2, 1: 2, 2: 3}
+ ```
+ 
+ # Example Custom Index
+
+```python
+from ..asciigraph import parse_ascii_func
+ts = parse_ascii_func(glyph='*', graph="""
+    3|     *
+    2|*   *
+    1| * *
+    0|--*------------
+""", index=[date(2020, 6, day) for day in range(12, 18)])
+
+print(ts)  # {date(2020, 6, 12): 2, date(2020, 6, 13): 1, date(2020, 6, 14): 0, date(2020, 6, 15): 1, date(2020, 6, 16): 2, date(2020, 6, 17): 3}
  ```
