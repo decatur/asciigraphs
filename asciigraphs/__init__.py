@@ -32,29 +32,3 @@ def diff_func(f):
     values = list(f.values())
     # return dict(zip(shift_keys, [(values[i]-values[i-1]) / (keys[i]-keys[i-1]) for i in shift_keys]))
     return {keys[i]: (values[i]-values[i-1]) for i in range(1, len(keys))}
-
-
-if __name__ == '__main__':
-    f = parse_ascii_func(glyph='*', graph="""
-        3|     *
-        2|*   *
-        1| * *
-        0|--*------------
-    """)
-
-    print(f)  # {0: 2, 1: 1, 2: 0, 3: 1, 4: 2, 5: 3}
-    print(diff_func(f))  # {1: -1.0, 2: -1.0, 3: 1.0, 4: 1.0, 5: 1.0}
-
-    g, h = parse_ascii_funcs(glyphs=['*', '+'], graph="""
-           3|     *
-           2|*   *
-           1| * *
-           0|--*------------
-           
-           3|  +
-           2|++ 
-           0|---------------
-       """)
-
-    print(g)  # {0: 2, 1: 1, 2: 0, 3: 1, 4: 2, 5: 3}
-    print(h)  # {0: 2, 1: 2, 2: 3}
