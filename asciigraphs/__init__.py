@@ -1,9 +1,9 @@
-from typing import Dict, List
+from typing import Dict, List, Any
 
 
-def parse_ascii_func(glyph: str, graph: str) -> Dict[int, int]:
+def parse_ascii_func(glyph: str, graph: str, index: List[Any] = None) -> Dict[int, int]:
     """
-    Parses an ascii function
+    Parse a single ascii function
     """
 
     f = {}
@@ -16,14 +16,20 @@ def parse_ascii_func(glyph: str, graph: str) -> Dict[int, int]:
         for i in indices:
             f[i] = int(y.strip())
 
-    return dict(sorted(f.items()))
+    f = dict(sorted(f.items()))
+    if index:
+        f = reindex(f, index)
+    return f
 
 
-def parse_ascii_funcs(glyphs: List[str], graph: str) -> List[Dict[int, int]]:
-    return [parse_ascii_func(glyph, graph) for glyph in glyphs]
+def parse_ascii_funcs(glyphs: List[str], graph: str, index: List[Any] = None) -> List[Dict[int, int]]:
+    """
+    Parse multiple ascii functions
+    """
+    return [parse_ascii_func(glyph, graph, index) for glyph in glyphs]
 
 
-def reindex(f, new_index):
+def reindex(f, new_index) -> dict:
     return {new_index[x]: y for x, y in f.items()}
 
 
@@ -31,4 +37,4 @@ def diff_func(f):
     keys = list(f.keys())
     values = list(f.values())
     # return dict(zip(shift_keys, [(values[i]-values[i-1]) / (keys[i]-keys[i-1]) for i in shift_keys]))
-    return {keys[i]: (values[i]-values[i-1]) for i in range(1, len(keys))}
+    return {keys[i]: (values[i] - values[i - 1]) for i in range(1, len(keys))}
