@@ -1,6 +1,14 @@
 # asciigraphs
 Python package to parse functions from their graphs.
 
+# install
+
+```bash
+pip install git+https://github.com/decatur/asciigraphs.git
+```
+
+# Example
+
 ```python
 from ..asciigraph import parse_ascii_func
 
